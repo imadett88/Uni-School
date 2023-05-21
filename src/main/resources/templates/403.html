@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org"
+                 xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+                 xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+                  layout:decorate="navbar"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&family=Oxygen&family=Poppins:ital,wght@0,200;0,400;1,100;1,200;1,300&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/CSS/style403.css">
+    <title>Error</title>
+</head>
+<body>
+<div layout:fragment="content1">
+  <div class="frem">
+    <p>403</p>
+    <h2>Look like you're lost</h2>
+    <h5>the page you are looking for not avaible!</h5>
+    <a th:href="@{/home}">Go to Home</a>
+  </div>
+</div>
+</body>
+</html>

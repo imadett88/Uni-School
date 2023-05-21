@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="navbar"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Branchs</title>
+  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&family=Oxygen&family=Poppins:ital,wght@0,200;0,400;1,100;1,200;1,300&family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/CSS/styleBranch.css">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+
+</head>>
+<body>
+<div layout:fragment="content1">
+  <div id="carouselExampleControls" class="carousel" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="card">
+          <div class="img-wrapper"><img src="https://canadianbusinesscollege.com/wp-content/uploads/2020/10/software-engineering-program.jpg" class="d-block w-100" alt="..."> </div>
+          <div class="card-body">
+            <h5 class="card-title">Software Engineering</h5>
+            <p class="card-text">Software engineering is the branch of computer science that deals with the design, development, testing, and maintenance of software applications</p>
+            <a th:href="@{course}" class="btn btn-success">Join</a>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card">
+          <div class="img-wrapper"><img src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/197385482/original/6d6a8e04687958cbffbdcef8b7af096d8789dc6b/do-accounting-and-finance-and-audit-related-tasks.jpg" class="d-block w-100" alt="..."> </div>
+          <div class="card-body">
+            <h5 class="card-title">Finance and audit Engineering</h5>
+            <p class="card-text">The Financial Engineering Group (FEG) is a team with deep quantitative and specialist risk management expertise in financial instruments.</p>
+            <a th:href="@{course}" class="btn btn-success">Join</a>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card">
+          <div class="img-wrapper"><img src="https://www.build-review.com/wp-content/uploads/2021/03/Civil-engineers.jpg" class="d-block w-100" alt="..."> </div>
+          <div class="card-body">
+            <h5 class="card-title">Civil Engineering</h5>
+            <p class="card-text">professional engineering discipline that deals with the design, construction, and maintenance of the physical and naturally built environment</p>
+            <a th:href="@{course}" class="btn btn-success">Join</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>

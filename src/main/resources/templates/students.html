@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="navbar"
+
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200&family=Oxygen&family=Poppins:ital,wght@0,200;0,400;1,100;1,200;1,300&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/CSS/styleStudents.css">
+</head>
+<body>
+<div layout:fragment="content1">
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header text-white bg-success" c>Students List</div>
+            <div class="card-body">
+                <form method="get" th:action="@{/user/index}">
+                    <label style="color: black">Key Word</label>
+                    <input type="text" name="keyword" th:value="${keyword}">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>ID</th><th>Name</th><th>Date</th><th>Absence</th><th>number</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="s:${listStudents}">
+                        <td th:text="${s.id}"></td>
+                        <td th:text="${s.name}"></td>
+                        <td th:text="${s.dateBirth}"></td>
+                        <td th:text="${s.absence}"></td>
+                        <td th:text="${s.seanceAbsence}"></td>
+                        <td sec:authorize="hasRole('ADMIN')">
+                            <a onclick="return confirm('Are you sure')" class="btn btn-danger" th:href="@{/admin/delete(id=${s.id}, keyword=${keyword}, page=${currentPage})}">
+                                <!-- @ dans thymeleaf pour les methode  -->
+                                Delete
+                            </a>
+                        </td>
+                        <td sec:authorize="hasRole('ADMIN')">
+                            <a  class="btn btn-success" th:href="@{/admin/editStudent(id=${s.id}, keyword=${keyword}, page=${currentPage})}">
+                                <!-- @ dans thymeleaf pour les methode  -->
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <ul class="nav nav-pills">
+                    <li th:each="page,status:${pages}">
+                        <a th:class="${status.index==currentPage?'btn btn-primary m-lg-1':'btn btn-outline-primary m-lg-1'}"
+                           th:text="${status.index}"
+                           th:href="@{/user/index(page=${status.index}, keyword=${keyword})}"
+                        ></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
